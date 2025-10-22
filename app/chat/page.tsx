@@ -96,7 +96,7 @@ This claim has been thoroughly debunked by the scientific community and represen
     timestamp: new Date(Date.now() - 60000),
     language: "en" as const,
     mediaUrl:
-      "https://my-audio-transcribe-bucket-12345.s3.us-east-1.amazonaws.com/audio.mp3?response-content-disposition=inline&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJIMEYCIQDBmnKhtzUjonIXYdBouLP%2FhryXc5F%2B%2FnPBE0xTcZIxqgIhAOUMzTYijCx93Geh5XQ5Ttu65NX%2B5qxjbf0Ecwi0woamKsIDCIv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMMDI2MDkwNTU1MzE2IgyQgM6sGq7%2FfvgRrVQqlgObSmPIu%2BOwzYBD3nUF71fdQYpZmSEZi2hmwJmXqqdImPB6z5wom2vfnow41kS2RlVZsneiziWajr9XJVKW%2FGZrqQKQyodiil2s75lodQ9HF%2FmL%2Bv4ZOiilACgaj60cUO%2Ben7KC4yyD1IOXQA25a43rK6sf7ZKGjDqfdUoXJnZ1dUVZJzcZ8EyGgmho%2FSy%2FrpE9EYvnVhvKJQ6Vkug3c9Ojrv2dIju8IjgCkQFBvS0agPQWUZZ0jaVfTUtFXH9u%2BnzcQZRyFJ3K8Ze6gChXlw5WGDqS0FzZ3UihENNd0hsxombSpkMbC%2FLWGg6S9%2BkduEsHfC2dx4TzlwparB1Bp0hZmu2xBgCJt%2FJxiAcrVGAjpbeAhY67Q00C9GcG8ZQCEtjETbXtzfuC23zv41Niv65t4gz%2FfUwNxliNSFoevg6jMJgLGnf%2FSns2hjGtwZqh6jTvkxDE0TPw4JS31t%2B1QcQchxO3vJxykRMgClfkroCyCAbfJitWFWfem9yRgn3W3rUoT7CHiZrrlsyYAGX81YmkggnJycysMKrYwscGOt0CDlmz0jxVmIM0ThbhNkV%2BcoJLEMniNr2wdNcLSe7rcgrxRm72jB1Xfvr76H%2BPDYG0995yWX9azi5TFw3LIAzoQTQL0phO1ErpfGV61KgjRDJ5ZkhyXXgTvIfWacgYnrpfJLVBjWEKBL5EC2mcfuTaHTLoKf8fptlF%2Bs5LK8A5sD9Pg3HwnT2ObOxJTb1Xjk4sh6EDv6T4KYOAcdgy58nsybNtk7lg7VWCMxNjKjIY2%2FFQV%2B6ksPCTgqA1QFIlbt9Tqr8XjlG5PL2dfDXx8y4mBtZUmz6KD7Sq802xUaY3tSJdzGzL57mEavOEuzEERa855QUbkb0r34lkm9n9taYvkbSwV0XPdkQ8laqBjDCks2BJcpTG9slpPuLXg4InQToXhBsZTdzJqC%2B8Tso8DALNOBXIRLR1bawK%2Bb%2Fjzi2%2FQNde2v5qIN%2FPVhsbnWwRuDM5akHEj6E83MIKu8GXUg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAQMEY6I62PSMPERXG%2F20251016%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251016T092803Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=8bb51a82b24cc1fc4a1a462c1715f108f73f9c14bf27a9947aa915290a22fe3f",
+      "https://trustlens-user-uploads.s3.us-east-2.amazonaws.com/005cb87e-293e-4508-b7f9-01fb6d5bb42b2.1.mp3?response-content-disposition=inline&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEF8aCXVzLWVhc3QtMiJHMEUCIQC1bvrdvVWs1xEz7dXZTh20YofNlRt2%2B104V08HxFj8xgIgXFpxEw8Z8WuqOXypp%2B%2BC88yIfxm7MUqTK50Wx58suFkquQMIGBAAGgwwMjYwOTA1NTUzMTYiDIgSxebSuU%2FguusGjCqWAyzwLxPcvsyZGlPHxUxs4iBKHyVjZvQlHd58KEvLxyTDz0bdFw%2FlZZRVmz6D1h3962V1CzfH9%2Bfkcg%2F6hlrZnV6mx11UQQiHDPxz1I5%2FDUMS3DfUPGx99RmpglZdKbVUNxk2wUzL5QwIg%2FHtpFs3UDNu%2F%2Fg6nzO0pOJ%2Fy6oK%2F3vnQL4mKbXQsrcviRwBHOc03eFZu%2ByVH8fskU7VFB7aUHP%2BNo%2FfxRyqPWJuXzBODuQ5e39RKFMjs05%2FN3e0QsPJM6dsJbEK0iKWXYrW8Y2VvZ8l%2BZaxGguTBeEzNQydHYg0ZQTN1P%2B46P11d3SVL%2BeGLVOvd3BdRKp%2BkOpbQvzBs6uYlpGN4KV5PwiceVBApTbVG%2B2UMn2GVi8STyfJHM5PUIBiJdBFz9%2FaaEirbZpa%2FECUFswC8i4yyTVRfuRsweXbC7vBgHwaM6VdquQ3brYLYRhyDeLFRLFPYItuqF9%2BvcklAdm9%2Fv6dq%2FJhHRz9OfdEYaokdlLTvUKGsPZLmaQq%2F%2ByiZ9fwgtjmxTf4ywAubm9jNrVBtKkw%2B%2BPcxwY63gKEWkMvtZeKi76YemF%2FV%2BkRK9Lwbrs%2Fjsr2bI%2F3RSKrrHPf4Zx1ri3P7MZ0sYG8mamPzA8smn0Ob0O6UZGSCMBsTRNIsZRH9OSg5hpfj9q7K8FC9jNkyh%2BuokjpRIqa8PRiaBVErdtC7LKYIv%2FPHBLQkbl2134K%2FN2wXz9RKZdm9tEiAE1SLP2Ekv%2Fmuq3X7JMj9hSKgzAxH6baF2TYKXkz37f9%2BK1QW%2FQZGXiooZpIFmYgmJHwPMQGq%2FYth5ztKzOVWeZUmoQs7x%2BeAAaBmkZT4Bf6RqF%2FQ52CH%2FwPUs3LsnQ2cYbvhcbHRSQnHarxK3ixaKVLzDSdjVSpsoXhdhqo8QWVXBMCPq7ayCHez3YNzM%2Ffe1cLMOic%2F59nRMTfWbIu2ShpzF4CB7prbBEiLJbDesAOH1MpfkYxx4rcUCQpQ2r0RQ18%2BRJT6XFZ68kREYJZez5ZkpBJejP%2BgD%2F5gg%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAQMEY6I62A35SUFG4%2F20251021%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20251021T151544Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=0ef40658b094ca3dd7b88976ea8f678f5826ab626414a8090863fce09630d478",
     orchestratorResponse: {
       response_type: "structured_report" as const,
       output: {
@@ -114,24 +114,24 @@ The audio presents legitimate Python programming concepts with clear explanation
             judgment: "True" as const,
             explanation:
               "This is accurate. Python uses an interpreter to execute code sequentially, which is one of its defining characteristics and contributes to its ease of use for beginners.",
-            start_time: 125.5,
-            end_time: 148.3,
+            start_time: 0.5,
+            end_time: 8.3,
           },
           {
             text: "Python is the fastest programming language for data processing",
             judgment: "False" as const,
             explanation:
               "This is misleading. While Python is popular for data processing due to its libraries and ease of use, compiled languages like C++ and Rust are generally faster. Python's strength is in developer productivity, not raw execution speed.",
-            start_time: 285.8,
-            end_time: 312.1,
+            start_time: 9.8,
+            end_time: 12.1,
           },
           {
             text: "List comprehensions are more memory efficient than traditional loops",
             judgment: "Unsure" as const,
             explanation:
               "This depends on the specific use case. List comprehensions can be more efficient in some scenarios but may use more memory when creating large lists. Generator expressions are typically more memory efficient than both.",
-            start_time: 456.4,
-            end_time: 489.9,
+            start_time: 13.4,
+            end_time: 35.9,
           },
         ],
         sources: [
@@ -366,6 +366,7 @@ export default function ChatPage() {
                     </div>
                   </div>
                 ) : (
+                
                   <ChatMessage message={message} />
                 )}
               </div>

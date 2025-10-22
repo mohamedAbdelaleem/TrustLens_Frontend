@@ -46,7 +46,9 @@ export function ClaimsAnalysisModal({
 }: ClaimsAnalysisModalProps) {
   const mediaRef = useRef<HTMLVideoElement | HTMLAudioElement>(null)
   const mediaContainerRef = useRef<HTMLDivElement>(null)
+  const scrollAreaRef = useRef<HTMLDivElement>(null)
   const [currentTime, setCurrentTime] = useState(0)
+  const [playbackEndTime, setPlaybackEndTime] = useState<number | null>(null)
 
   const getVerdictIcon = (judgment: string) => {
     switch (judgment) {
@@ -84,14 +86,85 @@ export function ClaimsAnalysisModal({
     return judgment
   }
 
-  const seekToTimestamp = (time: number) => {
+  const seekToTimestamp = (time: number, claimIndex: number) => {
+    console.log("[v0] seekToTimestamp called with time:", time, "claimIndex:", claimIndex)
+
     if (mediaRef.current) {
       mediaRef.current.currentTime = time
       mediaRef.current.play()
+
+      // Set the end time for this specific claim
+      const claim = claims[claimIndex]
+      if (claim?.end_time !== undefined) {
+        console.log("[v0] Setting playbackEndTime to:", claim.end_time)
+        setPlaybackEndTime(claim.end_time)
+      }
+
+      if (scrollAreaRef.current) {
+        scrollAreaRef.current.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        })
+      }
+
     }
-    if (mediaContainerRef.current) {
-      mediaContainerRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
+
+    // if (mediaContainerRef.current) {
+    //   setTimeout(() => {
+    //     console.log("[v0] Attempting to scroll to media container")
+
+    //     // Find the scrollable parent (ScrollArea viewport)
+    //     let scrollableParent = mediaContainerRef.current?.parentElement
+    //     while (scrollableParent) {
+    //       const hasScroll = scrollableParent.scrollHeight > scrollableParent.clientHeight
+    //       console.log("[v0] Checking parent:", scrollableParent.className, "hasScroll:", hasScroll)
+    //       if (hasScroll) {
+    //         console.log("[v0] Found scrollable parent")
+    //         break
+    //       }
+    //       scrollableParent = scrollableParent.parentElement
+    //     }
+
+    //     if (scrollableParent && mediaContainerRef.current) {
+    //       const mediaTop = mediaContainerRef.current.offsetTop
+    //       const parentTop = scrollableParent.offsetTop
+    //       const scrollOffset = mediaTop - parentTop - 10
+
+    //       console.log("[v0] Media offsetTop:", mediaTop)
+    //       console.log("[v0] Parent offsetTop:", parentTop)
+    //       console.log("[v0] Scroll offset:", scrollOffset)
+    //       console.log("[v0] Current scroll position:", scrollableParent.scrollTop)
+
+    //       scrollableParent.scrollTo({
+    //         top: scrollOffset,
+    //         behavior: "smooth",
+    //       })
+
+    //       console.log("[v0] After scroll position:", scrollableParent.scrollTop)
+    //     } else {
+    //       console.log("[v0] Could not find scrollable parent")
+    //     }
+    //   }, 50)
+    // }
+
+//     if (mediaContainerRef.current) {
+//   setTimeout(() => {
+//     // Find the Radix ScrollArea viewport
+//     const viewport = mediaContainerRef.current?.closest(
+//       "[data-slot='scroll-area-viewport']"
+//     ) as HTMLElement | null
+
+//     if (viewport) {
+//       viewport.scrollTo({
+//         top: 0, // scroll to top of modal (media preview)
+//         behavior: "smooth",
+//       })
+//     } else {
+//       console.warn("[v0] Could not find scroll-area viewport to scroll")
+//     }
+//   }, 50)
+// }
+
   }
 
   const formatTimestamp = (seconds: number) => {
@@ -117,7 +190,7 @@ export function ClaimsAnalysisModal({
           </DialogDescription>
         </DialogHeader>
 
-        <ScrollArea className={`${scrollHeight} pr-4`}>
+        <ScrollArea className={`${scrollHeight} pr-4`} ref={scrollAreaRef}>
           <div className="space-y-2 mt-4">
             {hasMedia && (
               <Card ref={mediaContainerRef} className="p-4 border-border/40 bg-accent/5">
@@ -130,7 +203,14 @@ export function ClaimsAnalysisModal({
                     src={mediaUrl}
                     controls
                     className="w-full rounded-lg"
-                    onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+                    onTimeUpdate={(e) => {
+                      const currentTime = e.currentTarget.currentTime
+                      setCurrentTime(currentTime)
+                      if (playbackEndTime !== null && currentTime >= playbackEndTime) {
+                        e.currentTarget.pause()
+                        setPlaybackEndTime(null)
+                      }
+                    }}
                   />
                 ) : (
                   <audio
@@ -138,7 +218,14 @@ export function ClaimsAnalysisModal({
                     src={mediaUrl}
                     controls
                     className="w-full"
-                    onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+                    onTimeUpdate={(e) => {
+                      const currentTime = e.currentTarget.currentTime
+                      setCurrentTime(currentTime)
+                      if (playbackEndTime !== null && currentTime >= playbackEndTime) {
+                        e.currentTarget.pause()
+                        setPlaybackEndTime(null)
+                      }
+                    }}
                   />
                 )}
               </Card>
@@ -172,7 +259,9 @@ export function ClaimsAnalysisModal({
                               variant="ghost"
                               size="sm"
                               className="h-6 px-2 text-xs font-mono text-primary hover:text-primary hover:bg-primary/10"
-                              onClick={() => seekToTimestamp(claim.start_time!)}
+                              onClick={() => {
+                                seekToTimestamp(claim.start_time!, index)
+                              }}
                             >
                               {formatTimestamp(claim.start_time)}
                             </Button>
@@ -181,14 +270,9 @@ export function ClaimsAnalysisModal({
                             <span className="text-muted-foreground">-</span>
                           )}
                           {claim.end_time !== undefined && (
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              className="h-6 px-2 text-xs font-mono text-primary hover:text-primary hover:bg-primary/10"
-                              onClick={() => seekToTimestamp(claim.end_time!)}
-                            >
+                            <span className="text-xs font-mono text-muted-foreground">
                               {formatTimestamp(claim.end_time)}
-                            </Button>
+                            </span>
                           )}
                         </div>
                       </div>

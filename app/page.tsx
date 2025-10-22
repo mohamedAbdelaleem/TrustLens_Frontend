@@ -52,7 +52,7 @@ export default function LandingPage() {
           </h1>
           <p className="text-xl text-muted-foreground text-pretty mb-8 max-w-2xl mx-auto leading-relaxed">
             Advanced multi-agent system that verifies facts across text, audio, and video content. Supporting multiple
-            languages with real-time analysis and comprehensive reporting.
+            languages with comprehensive reporting.
           </p>
           
         </div>

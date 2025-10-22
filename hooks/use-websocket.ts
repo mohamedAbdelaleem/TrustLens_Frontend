@@ -55,7 +55,9 @@ export const useWebSocket = (url: string) => {
           console.log("[v0] WebSocket message received:", response.status)
 
           // Call the appropriate callback if one exists
+          console.log("#### Before")
           const requestId = response.requestId
+          console.log("##### Request ID: ", requestId)
           if (requestId && requestCallbacks.current.has(requestId)) {
             const callback = requestCallbacks.current.get(requestId)
             callback?.(response)
@@ -123,13 +125,13 @@ export const useWebSocket = (url: string) => {
       const message = { ...request, requestId }
       ws.current.send(JSON.stringify(message))
 
-      // Timeout after 1000 seconds
+      // Timeout after 2000 seconds
       setTimeout(() => {
         if (requestCallbacks.current.has(requestId)) {
           requestCallbacks.current.delete(requestId)
           reject(new Error("WebSocket request timeout"))
         }
-      }, 1_000_000)
+      }, 2_000_000)
     })
   }, [])
 
@@ -159,6 +161,7 @@ export const useWebSocket = (url: string) => {
       })
 
       if (response.status === "verification_completed" && response.result) {
+        console.log(response.result, response.requestId)
         return response.result
       }
       throw new Error(response.error || "Verification failed")

@@ -31,6 +31,7 @@ interface ChatMessageProps {
 }
 
 export function ChatMessage({ message }: ChatMessageProps) {
+  
   const isRTL = useRTL(message.content) || message.language === "ar" || message.language === "he"
 
   const getVerificationIcon = (status: string) => {
